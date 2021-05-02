@@ -14,7 +14,7 @@ public class CarroDTO {
 	
 	public CarroDTO(Carro carro) {
 		this.model = carro.getModel();
-		this.licensePlate = carro.getLicensePlate();
+		this.licensePlate = carro.getLicenseplate();
 		this.color = carro.getColor();
 		this.year = carro.getYear();
 	}

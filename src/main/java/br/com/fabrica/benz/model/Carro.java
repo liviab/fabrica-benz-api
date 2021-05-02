@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Carro {
@@ -14,6 +15,18 @@ public class Carro {
 	private String licenseplate;
 	private String model;
 	private String color;
+	@ManyToOne
+	private Usuario usuario;
+
+	public Carro(){
+	}
+
+	public Carro(Integer year, String plate, String model, String color){
+		this.year = year;
+		this.licenseplate = plate;
+		this.model = model;
+		this.color = color;
+	}
 
 	public Long getId() {
 		return id;
@@ -23,14 +36,6 @@ public class Carro {
 		this.id = id;
 	}
 	
-	public String getLicensePlate() {
-		return licenseplate;
-	}
-
-	public void setLicensePlate(String licensePlate) {
-		this.licenseplate = licensePlate;
-	}
-
 	public String getModel() {
 		return model;
 	}
@@ -53,6 +58,22 @@ public class Carro {
 	
 	public void setYear(Integer year) {
 		this.year = year;
+	}
+
+	public String getLicenseplate() {
+		return licenseplate;
+	}
+
+	public void setLicenseplate(String licenseplate) {
+		this.licenseplate = licenseplate;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package br.com.fabrica.benz.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -21,9 +22,25 @@ public class Usuario {
 	private String login;
 	private String password;
 	private String phone;
-	@OneToMany
-	private List<Carro> cars;
+	@OneToMany(mappedBy = "usuario")
+	private List<Carro> carros;
 	
+	public Usuario(){
+		this.carros = new ArrayList<>();
+	}
+
+	public Usuario(String firstname, String lastname, String email, LocalDate birthday, String login,
+					String password, String phone){
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+		this.birthday = birthday;
+		this.login = login;
+		this.password = password;
+		this.phone = phone;
+		this.carros = new ArrayList<>();
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -32,19 +49,19 @@ public class Usuario {
 		this.id = id;
 	}
 	
-	public String getFirstName() {
+	public String getFirstname() {
 		return firstname;
 	}
 
-	public void setFirstName(String firstName) {
+	public void setFirstname(String firstName) {
 		this.firstname = firstName;
 	}
 
-	public String getLastName() {
+	public String getLastname() {
 		return lastname;
 	}
 
-	public void setLastName(String lastName) {
+	public void setLastname(String lastName) {
 		this.lastname = lastName;
 	}
 
@@ -88,12 +105,12 @@ public class Usuario {
 		this.phone = phone;
 	}
 
-	public List<Carro> getCars() {
-		return cars;
+	public List<Carro> getCarros() {
+		return carros;
 	}
 
-	public void setCars(List<Carro> cars) {
-		this.cars = cars;
+	public void setCarros(List<Carro> cars) {
+		this.carros = cars;
 	}
 
 	@Override
@@ -101,7 +118,7 @@ public class Usuario {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((birthday == null) ? 0 : birthday.hashCode());
-		result = prime * result + ((cars == null) ? 0 : cars.hashCode());
+		result = prime * result + ((carros == null) ? 0 : carros.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((firstname == null) ? 0 : firstname.hashCode());
 		result = prime * result + ((lastname == null) ? 0 : lastname.hashCode());
@@ -125,10 +142,10 @@ public class Usuario {
 				return false;
 		} else if (!birthday.equals(other.birthday))
 			return false;
-		if (cars == null) {
-			if (other.cars != null)
+		if (carros == null) {
+			if (other.carros != null)
 				return false;
-		} else if (!cars.equals(other.cars))
+		} else if (!carros.equals(other.carros))
 			return false;
 		if (email == null) {
 			if (other.email != null)
