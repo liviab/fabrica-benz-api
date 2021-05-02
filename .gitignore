@@ -23,8 +23,10 @@
 hs_err_pid*
 
 # arquivos compilados
-# target/
-# */target/**
-#
-# # arquivos de ide
-# .project
+target/
+*/target/**
+
+# arquivos de ide
+.project
+.classpath
+.settings/
