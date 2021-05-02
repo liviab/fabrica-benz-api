@@ -14,13 +14,6 @@ public class Carro {
 	private String licenseplate;
 	private String model;
 	private String color;
-	
-	public Carro(Integer year, String license, String model, String color) {
-		this.year = year;
-		this.licenseplate = license;
-		this.model = model;
-		this.color = color;
-	}
 
 	public Long getId() {
 		return id;

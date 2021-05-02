@@ -24,22 +24,6 @@ public class Usuario {
 	@OneToMany
 	private List<Carro> cars;
 	
-	
-	public Usuario(String login, String password) {
-		this.login = login;
-		this.password = password;
-	}
-	
-	public Usuario(String firstName, String lastName, String email, LocalDate birthday, String login, String password, String phone) {
-		this.firstname = firstName;
-		this.lastname = lastName;
-		this.email = email;
-		this.birthday = birthday;
-		this.login = login;
-		this.password = password;
-		this.phone = phone;
-	}
-
 	public Long getId() {
 		return id;
 	}
