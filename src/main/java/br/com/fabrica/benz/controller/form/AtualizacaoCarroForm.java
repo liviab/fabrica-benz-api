@@ -1,38 +1,23 @@
 package br.com.fabrica.benz.controller.form;
 
 import br.com.fabrica.benz.model.Carro;
+import br.com.fabrica.benz.repository.CarroRepository;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-public class CarroForm {
+public class AtualizacaoCarroForm {
 
-    @NotNull @NotEmpty
-    private Integer year;
-    @NotNull @NotEmpty
+    @NotNull
     private String licenseplate;
-    @NotNull @NotEmpty
-    private String model;
-    @NotNull @NotEmpty
+    @NotNull
     private String color;
     
-    public Integer getYear() {
-        return year;
-    }
-    public void setYear(Integer year) {
-        this.year = year;
-    }
     public String getLicenseplate() {
         return licenseplate;
     }
     public void setLicenseplate(String licenseplate) {
         this.licenseplate = licenseplate;
-    }
-    public String getModel() {
-        return model;
-    }
-    public void setModel(String model) {
-        this.model = model;
     }
     public String getColor() {
         return color;
@@ -41,7 +26,14 @@ public class CarroForm {
         this.color = color;
     }
 
-    public Carro converter(){
-        return new Carro(year, licenseplate, model, color);
+    public Carro atualizar(Long id, CarroRepository carroRepository){
+        Carro carro = carroRepository.getOne(id);
+        if (this.licenseplate.length() >= 1) {
+            carro.setLicenseplate(this.licenseplate);
+        }
+        if (this.color.length() >= 1) {
+            carro.setColor(this.color);
+        }
+        return carro;
     }
 }

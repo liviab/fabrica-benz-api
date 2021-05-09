@@ -11,18 +11,18 @@ import br.com.fabrica.benz.model.Usuario;
 
 public class UsuarioForm {
 
-	@NotEmpty(message = "Invalid fields") @NotNull(message = "Invalid fields")
+	@NotEmpty @NotNull
     private	String firstname;
-	@NotEmpty(message = "Invalid fields") @NotNull(message = "Invalid fields")
+	@NotEmpty @NotNull
 	private String lastname;
-	@NotEmpty(message = "Invalid fields") @NotNull(message = "Invalid fields")
+	@NotEmpty @NotNull
 	private String email;
 	private LocalDate birthday;
-	@NotEmpty(message = "Invalid fields") @NotNull(message = "Invalid fields")
+	@NotEmpty @NotNull
 	private String login;
-	@NotEmpty(message = "Invalid fields") @NotNull(message = "Invalid fields")
+	@NotEmpty @NotNull
 	private String password;
-	@NotEmpty(message = "Invalid fields") @NotNull(message = "Invalid fields") @Length(min = 10, max = 11)
+	@NotEmpty @NotNull @Length(min = 10, max = 11)
 	private String phone;
 
 	public String getFirstname() {
